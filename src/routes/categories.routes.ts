@@ -10,9 +10,7 @@ const categoriesRepository = new CategoriesRepository();
 categoriesRoutes.post('/', (request: Request, response: Response) => {
   const { name, description } = request.body;
 
-  const createCategorieService = new CreateCategoryService(
-    categoriesRepository
-  );
+  const createCategorieService = new CreateCategoryService(categoriesRepository);
 
   const newCategory = createCategorieService.execute({
     name,
