@@ -1,12 +1,23 @@
-import ICreateCategoryDTO from '../DTOs/ICreateCategoryDTO';
-import Category from '../model/Category';
-import ICategoryRepository from './ICategoriesRepository';
+import ICreateCategoryDTO from '../../DTOs/ICreateCategoryDTO';
+import Category from '../../model/Category';
+import ICategoryRepository from '../ICategoriesRepository';
 
 class CategoriesRepository implements ICategoryRepository {
   private categories: Category[];
 
-  constructor() {
+  // eslint-disable-next-line no-use-before-define
+  private static INSTANCE: CategoriesRepository;
+
+  private constructor() {
     this.categories = [];
+  }
+
+  public static getInstance(): CategoriesRepository {
+    if (!this.INSTANCE) {
+      this.INSTANCE = new CategoriesRepository();
+    }
+
+    return this.INSTANCE;
   }
 
   create({ name, description }: ICreateCategoryDTO): Category {
