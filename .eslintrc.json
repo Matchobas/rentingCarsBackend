@@ -23,7 +23,7 @@
     "rules": {
       "camelcase": "off",
       "import/no-unresolved": "error",
-      "max-len": ["error", {"code": 90}],
+      "max-len": ["error", {"code": 95}],
       "@typescript-eslint/naming-convention": [
         "error",
         {
