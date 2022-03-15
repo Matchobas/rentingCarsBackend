@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import ICreateSpecificationDTO from '../../DTOs/ICreateSpecificationDTO';
 import Specification from '../../model/Specification';
 import ISpecificationsRepository from '../ISpecificationsRepository';
@@ -5,8 +6,18 @@ import ISpecificationsRepository from '../ISpecificationsRepository';
 class SpecificationsRepository implements ISpecificationsRepository {
   private specifications: Specification[];
 
-  constructor() {
+  private static INSTANCE: SpecificationsRepository;
+
+  private constructor() {
     this.specifications = [];
+  }
+
+  public static getInstance() {
+    if (!this.INSTANCE) {
+      this.INSTANCE = new SpecificationsRepository();
+    }
+
+    return this.INSTANCE;
   }
 
   create({ name, description }: ICreateSpecificationDTO): void {
