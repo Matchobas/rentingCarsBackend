@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Ignite Project Documentation",
+    "description": "API done in Node study",
+    "version": "1.0.0",
+    "contact": {
+      "email": "maalexandria@hotmail.com"
+    }
+  },
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create a new Category",
+        "description": "Route to create a new category in the system, with name and description",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "strings"
+                  }
+                },
+                "example": {
+                  "name": "New category to be created",
+                  "description": "Brand new category with awsome features foo"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Category name already exists in database"
+          }
+        }
+      }
+    }
+  }
+}
