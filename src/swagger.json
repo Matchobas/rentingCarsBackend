@@ -29,18 +29,46 @@
                 },
                 "example": {
                   "name": "New category to be created",
-                  "description": "Brand new category with awsome features foo"
+                  "description": "Brand new category with awesome features foo"
                 }
               }
             }
           }
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "Created"
           },
           "500": {
             "description": "Category name already exists in database"
+          }
+        }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "List all categories",
+        "description": "Return a list of all existing categories from the database",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
