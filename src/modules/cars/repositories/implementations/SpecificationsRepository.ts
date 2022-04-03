@@ -1,6 +1,6 @@
 /* eslint-disable no-use-before-define */
 import ICreateSpecificationDTO from '../../DTOs/ICreateSpecificationDTO';
-import Specification from '../../model/Specification';
+import Specification from '../../entities/Specification';
 import ISpecificationsRepository from '../ISpecificationsRepository';
 
 class SpecificationsRepository implements ISpecificationsRepository {

@@ -9,8 +9,10 @@ class ListCategoriesController {
     this.listCategoriesUseCase = listCategoriesUseCase;
   }
 
-  handle(request: Request, response: Response) {
-    return response.json(this.listCategoriesUseCase.execute());
+  async handle(request: Request, response: Response) {
+    const categories = await this.listCategoriesUseCase.execute();
+
+    return response.json(categories);
   }
 }
 

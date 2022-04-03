@@ -2,10 +2,14 @@ import CategoriesRepository from '../../repositories/implementations/CategoriesR
 import CreateCategoryController from './CreateCategoryController';
 import CreateCategoryUseCase from './CreateCategoryUseCase';
 
-const categoriesRepository = CategoriesRepository.getInstance();
+// A forma de exportação foi criada como função para impedir que esse arquivo carregue diretamente
+// resultando em erro
+export default (): CreateCategoryController => {
+  const categoriesRepository = new CategoriesRepository();
 
-const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
+  const createCategoryUseCase = new CreateCategoryUseCase(categoriesRepository);
 
-const createCategoryController = new CreateCategoryController(createCategoryUseCase);
+  const createCategoryController = new CreateCategoryController(createCategoryUseCase);
 
-export { createCategoryController, categoriesRepository };
+  return createCategoryController;
+};

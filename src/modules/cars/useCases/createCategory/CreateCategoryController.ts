@@ -9,10 +9,10 @@ class CreateCategoryController {
     this.createCategoryUseCase = createCategoryUseCase;
   }
 
-  handle(request: Request, response: Response) {
+  async handle(request: Request, response: Response): Promise<Response> {
     const { name, description } = request.body;
 
-    const newCategory = this.createCategoryUseCase.execute({
+    const newCategory = await this.createCategoryUseCase.execute({
       name,
       description,
     });
