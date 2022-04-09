@@ -72,6 +72,74 @@
           }
         }
       }
+    },
+    "/categories/upload": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Import a CSV file with categories",
+        "description": "Receive a CSV file with multiple categories data to add to all categories",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Categories in CSV file created"
+          }
+        }
+      }
+    },
+    "/specifications": {
+      "post": {
+        "tags": ["Specification"],
+        "summary": "Create a new Specification",
+        "description": "Creates a new specifications in the database with the forms data",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Specification"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Specification created with success"
+          },
+          "500": {
+            "description": "Specification's name already exists in database"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specification": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        }
+      },
+      "example": {
+        "name": "Cãmbio automático",
+        "description": "Carros que possuem um câmbio automático ao invés do manual"
+      }
     }
   }
 }
