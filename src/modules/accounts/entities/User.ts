@@ -23,6 +23,9 @@ class User {
   })
   isAdmin: boolean;
 
+  @Column()
+  avatar: string;
+
   @CreateDateColumn()
   created_at: Date;
 
