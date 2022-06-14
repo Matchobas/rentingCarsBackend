@@ -1,5 +1,5 @@
 import ICreateCategoryDTO from '../DTOs/ICreateCategoryDTO';
-import Category from '../entities/Category';
+import Category from '../infra/entities/Category';
 
 interface ICategoryRepository {
   findByName(name: string): Promise<Category>;

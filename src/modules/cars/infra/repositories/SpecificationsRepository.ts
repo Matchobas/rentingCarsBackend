@@ -1,9 +1,10 @@
 /* eslint-disable no-use-before-define */
 import { getRepository, Repository } from 'typeorm';
 
+import ISpecificationsRepository from '@modules/cars/repositories/ISpecificationsRepository';
+
 import ICreateSpecificationDTO from '../../DTOs/ICreateSpecificationDTO';
-import Specification from '../../entities/Specification';
-import ISpecificationsRepository from '../ISpecificationsRepository';
+import Specification from '../entities/Specification';
 
 class SpecificationsRepository implements ISpecificationsRepository {
   private repository: Repository<Specification>;
