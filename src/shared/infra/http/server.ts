@@ -2,7 +2,7 @@ import 'reflect-metadata';
 import express, { NextFunction, Request, Response } from 'express';
 import swaggerUi from 'swagger-ui-express';
 
-import '../../../database';
+import '../typeorm';
 
 import '@shared/container';
 
