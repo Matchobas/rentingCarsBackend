@@ -22,7 +22,7 @@ describe('List Cars', () => {
       category_id: '12345678',
     });
 
-    const cars = await listCarsUseCase.execute();
+    const cars = await listCarsUseCase.execute({});
 
     expect(cars).toEqual([car]);
   });
