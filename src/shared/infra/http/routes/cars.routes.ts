@@ -13,6 +13,6 @@ const listAvailableCarsController = new ListAvailableCarsController();
 
 carsRoutes.post('/', ensureAuthenticated, ensureAdmin, createCarController.handle);
 
-carsRoutes.get('/', ensureAuthenticated, listAvailableCarsController.handle);
+carsRoutes.get('/available', listAvailableCarsController.handle);
 
 export { carsRoutes };
