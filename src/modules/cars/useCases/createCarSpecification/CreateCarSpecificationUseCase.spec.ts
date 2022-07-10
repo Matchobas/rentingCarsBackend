@@ -13,6 +13,12 @@ describe('Create Car Specification', () => {
   });
 
   it('should be able add a new specification to a car', async () => {
-    await createCarSpecificationUseCase.execute();
+    const car_id = '1234';
+    const specifications_id = ['5432'];
+
+    await createCarSpecificationUseCase.execute({
+      car_id,
+      specifications_id,
+    });
   });
 });
